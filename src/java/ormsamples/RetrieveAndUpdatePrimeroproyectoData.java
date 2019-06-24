@@ -15,6 +15,12 @@ public class RetrieveAndUpdatePrimeroproyectoData {
 			modelo.Hijo lmodeloHijo = modelo.HijoDAO.loadHijoByQuery(null, null);
 			// Update the properties of the persistent object
 			modelo.HijoDAO.save(lmodeloHijo);
+			modelo.Mascota lmodeloMascota = modelo.MascotaDAO.loadMascotaByQuery(null, null);
+			// Update the properties of the persistent object
+			modelo.MascotaDAO.save(lmodeloMascota);
+			modelo.saludmascota lmodelosaludmascota = modelo.saludmascotaDAO.loadSaludmascotaByQuery(null, null);
+			// Update the properties of the persistent object
+			modelo.saludmascotaDAO.save(lmodelosaludmascota);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -35,6 +41,18 @@ public class RetrieveAndUpdatePrimeroproyectoData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lmodeloHijoCriteria.ci.eq();
 		System.out.println(lmodeloHijoCriteria.uniqueHijo());
+		
+		System.out.println("Retrieving Mascota by MascotaCriteria");
+		modelo.MascotaCriteria lmodeloMascotaCriteria = new modelo.MascotaCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lmodeloMascotaCriteria.nombre.eq();
+		System.out.println(lmodeloMascotaCriteria.uniqueMascota());
+		
+		System.out.println("Retrieving saludmascota by saludmascotaCriteria");
+		modelo.saludmascotaCriteria lmodelosaludmascotaCriteria = new modelo.saludmascotaCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lmodelosaludmascotaCriteria.registroveterinaria.eq();
+		System.out.println(lmodelosaludmascotaCriteria.uniqueSaludmascota());
 		
 	}
 	

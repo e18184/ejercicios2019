@@ -23,6 +23,7 @@ public class HijoCriteria extends AbstractORMCriteria {
 	public final StringExpression madreId;
 	public final AssociationExpression madre;
 	public final StringExpression nombre;
+	public final CollectionExpression saludmascotas;
 	
 	public HijoCriteria(Criteria criteria) {
 		super(criteria);
@@ -30,6 +31,7 @@ public class HijoCriteria extends AbstractORMCriteria {
 		madreId = new StringExpression("madre.ci", this);
 		madre = new AssociationExpression("madre", this);
 		nombre = new StringExpression("nombre", this);
+		saludmascotas = new CollectionExpression("ORM_Saludmascotas", this);
 	}
 	
 	public HijoCriteria(PersistentSession session) {
@@ -42,6 +44,10 @@ public class HijoCriteria extends AbstractORMCriteria {
 	
 	public MadreCriteria createMadreCriteria() {
 		return new MadreCriteria(createCriteria("madre"));
+	}
+	
+	public saludmascotaCriteria createSaludmascotasCriteria() {
+		return new saludmascotaCriteria(createCriteria("ORM_Saludmascotas"));
 	}
 	
 	public Hijo uniqueHijo() {

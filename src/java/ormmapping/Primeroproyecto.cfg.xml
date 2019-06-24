@@ -25,5 +25,7 @@ License Type: Evaluation
 		<!-- mapping files -->
 		<mapping resource="ormmapping/modelo/Hijo.hbm.xml" />
 		<mapping resource="ormmapping/modelo/Madre.hbm.xml" />
+		<mapping resource="ormmapping/modelo/Mascota.hbm.xml" />
+		<mapping resource="ormmapping/modelo/saludmascota.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

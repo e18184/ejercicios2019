@@ -13,5 +13,9 @@ License Type: Evaluation
 		<many-to-one name="madre" cascade="lock" column="MadreCi" class="modelo.Madre" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
 		<property name="nombre" column="Nombre" type="string" length="255" not-null="false" lazy="false"/>
+		<set name="ORM_Saludmascotas" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="HijoCi" not-null="true"/>
+			<one-to-many class="modelo.saludmascota"/>
+		</set>
 	</class>
 </hibernate-mapping>

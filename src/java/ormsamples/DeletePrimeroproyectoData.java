@@ -15,6 +15,12 @@ public class DeletePrimeroproyectoData {
 			modelo.Hijo lmodeloHijo = modelo.HijoDAO.loadHijoByQuery(null, null);
 			// Delete the persistent object
 			modelo.HijoDAO.delete(lmodeloHijo);
+			modelo.Mascota lmodeloMascota = modelo.MascotaDAO.loadMascotaByQuery(null, null);
+			// Delete the persistent object
+			modelo.MascotaDAO.delete(lmodeloMascota);
+			modelo.saludmascota lmodelosaludmascota = modelo.saludmascotaDAO.loadSaludmascotaByQuery(null, null);
+			// Delete the persistent object
+			modelo.saludmascotaDAO.delete(lmodelosaludmascota);
 			t.commit();
 		}
 		catch (Exception e) {

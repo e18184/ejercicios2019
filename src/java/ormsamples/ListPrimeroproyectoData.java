@@ -25,6 +25,22 @@ public class ListPrimeroproyectoData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Mascota...");
+		modelo.Mascota[] modeloMascotas = modelo.MascotaDAO.listMascotaByQuery(null, null);
+		length = Math.min(modeloMascotas.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(modeloMascotas[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing saludmascota...");
+		modelo.saludmascota[] modelosaludmascotas = modelo.saludmascotaDAO.listSaludmascotaByQuery(null, null);
+		length = Math.min(modelosaludmascotas.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(modelosaludmascotas[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 	}
 	
 	public void listByCriteria() throws PersistentException {
@@ -51,6 +67,30 @@ public class ListPrimeroproyectoData {
 			 System.out.println(modeloHijos[i]);
 		}
 		System.out.println(length + " Hijo record(s) retrieved."); 
+		
+		System.out.println("Listing Mascota by Criteria...");
+		modelo.MascotaCriteria lmodeloMascotaCriteria = new modelo.MascotaCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lmodeloMascotaCriteria.nombre.eq();
+		lmodeloMascotaCriteria.setMaxResults(ROW_COUNT);
+		modelo.Mascota[] modeloMascotas = lmodeloMascotaCriteria.listMascota();
+		length =modeloMascotas== null ? 0 : Math.min(modeloMascotas.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(modeloMascotas[i]);
+		}
+		System.out.println(length + " Mascota record(s) retrieved."); 
+		
+		System.out.println("Listing saludmascota by Criteria...");
+		modelo.saludmascotaCriteria lmodelosaludmascotaCriteria = new modelo.saludmascotaCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lmodelosaludmascotaCriteria.registroveterinaria.eq();
+		lmodelosaludmascotaCriteria.setMaxResults(ROW_COUNT);
+		modelo.saludmascota[] modelosaludmascotas = lmodelosaludmascotaCriteria.listSaludmascota();
+		length =modelosaludmascotas== null ? 0 : Math.min(modelosaludmascotas.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(modelosaludmascotas[i]);
+		}
+		System.out.println(length + " saludmascota record(s) retrieved."); 
 		
 	}
 	

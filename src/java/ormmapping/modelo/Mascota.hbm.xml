@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="modelo.Mascota" table="Mascota" lazy="false">
+		<id name="nombre" column="Nombre" type="string">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="registro" column="Registro" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_Saludmascotas" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="MascotaNombre" not-null="false"/>
+			<one-to-many class="modelo.saludmascota"/>
+		</set>
+	</class>
+</hibernate-mapping>

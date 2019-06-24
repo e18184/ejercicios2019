@@ -22,6 +22,11 @@ public class CreatePrimeroproyectoData {
 					statement.executeUpdate("INSERT INTO Hijo(Ci, MadreCi, Nombre) VALUES ('3', '2', 'manuel')");
 					statement.executeUpdate("INSERT INTO Hijo(Ci, MadreCi, Nombre) VALUES ('4', '2', 'carlos')");
 					statement.executeUpdate("INSERT INTO Hijo(Ci, MadreCi, Nombre) VALUES ('5', '2', 'gonzalo')");
+					statement.executeUpdate("INSERT INTO Mascota(Nombre, Registro) VALUES ('doki', '112')");
+					statement.executeUpdate("INSERT INTO Mascota(Nombre, Registro) VALUES ('rambo', '113')");
+					statement.executeUpdate("INSERT INTO Mascota(Nombre, Registro) VALUES ('', null)");
+					statement.executeUpdate("INSERT INTO saludmascota(Registroveterinaria, Nombreveterinaria, MascotaNombre, HijoCi) VALUES ('221', 'la roca', 'doki', '2')");
+					statement.executeUpdate("INSERT INTO saludmascota(Registroveterinaria, Nombreveterinaria, MascotaNombre, HijoCi) VALUES ('222', 'el paso', 'rambo', '1')");
 					statement.close();
 				}
 			});
@@ -43,8 +48,14 @@ public class CreatePrimeroproyectoData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hijos, ci
 			modelo.MadreDAO.save(lmodeloMadre);
 			modelo.Hijo lmodeloHijo = modelo.HijoDAO.createHijo();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : madre, ci
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : saludmascotas, madre, ci
 			modelo.HijoDAO.save(lmodeloHijo);
+			modelo.Mascota lmodeloMascota = modelo.MascotaDAO.createMascota();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : registro, nombre
+			modelo.MascotaDAO.save(lmodeloMascota);
+			modelo.saludmascota lmodelosaludmascota = modelo.saludmascotaDAO.createSaludmascota();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : hijo, registroveterinaria
+			modelo.saludmascotaDAO.save(lmodelosaludmascota);
 			t.commit();
 		}
 		catch (Exception e) {

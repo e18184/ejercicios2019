@@ -23,6 +23,7 @@ public class HijoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression madreId;
 	public final AssociationExpression madre;
 	public final StringExpression nombre;
+	public final CollectionExpression saludmascotas;
 	
 	public HijoDetachedCriteria() {
 		super(modelo.Hijo.class, modelo.HijoCriteria.class);
@@ -30,6 +31,7 @@ public class HijoDetachedCriteria extends AbstractORMDetachedCriteria {
 		madreId = new StringExpression("madre.ci", this.getDetachedCriteria());
 		madre = new AssociationExpression("madre", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
+		saludmascotas = new CollectionExpression("ORM_Saludmascotas", this.getDetachedCriteria());
 	}
 	
 	public HijoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -38,10 +40,15 @@ public class HijoDetachedCriteria extends AbstractORMDetachedCriteria {
 		madreId = new StringExpression("madre.ci", this.getDetachedCriteria());
 		madre = new AssociationExpression("madre", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
+		saludmascotas = new CollectionExpression("ORM_Saludmascotas", this.getDetachedCriteria());
 	}
 	
 	public MadreDetachedCriteria createMadreCriteria() {
 		return new MadreDetachedCriteria(createCriteria("madre"));
+	}
+	
+	public saludmascotaDetachedCriteria createSaludmascotasCriteria() {
+		return new saludmascotaDetachedCriteria(createCriteria("ORM_Saludmascotas"));
 	}
 	
 	public Hijo uniqueHijo(PersistentSession session) {

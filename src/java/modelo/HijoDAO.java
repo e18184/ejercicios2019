@@ -327,6 +327,10 @@ public class HijoDAO {
 				hijo.getMadre().hijos.remove(hijo);
 			}
 			
+			modelo.saludmascota[] lSaludmascotass = hijo.saludmascotas.toArray();
+			for(int i = 0; i < lSaludmascotass.length; i++) {
+				lSaludmascotass[i].setHijo(null);
+			}
 			return delete(hijo);
 		}
 		catch(Exception e) {
@@ -341,6 +345,10 @@ public class HijoDAO {
 				hijo.getMadre().hijos.remove(hijo);
 			}
 			
+			modelo.saludmascota[] lSaludmascotass = hijo.saludmascotas.toArray();
+			for(int i = 0; i < lSaludmascotass.length; i++) {
+				lSaludmascotass[i].setHijo(null);
+			}
 			try {
 				session.delete(hijo);
 				return true;
