@@ -1,3 +1,10 @@
+ALTER TABLE Hijo DROP CONSTRAINT madrehijo;
+ALTER TABLE saludmascota DROP CONSTRAINT saludmascota;
+ALTER TABLE saludmascota DROP CONSTRAINT saludmascota2;
+DROP TABLE IF EXISTS Madre CASCADE;
+DROP TABLE IF EXISTS Hijo CASCADE;
+DROP TABLE IF EXISTS Mascota CASCADE;
+DROP TABLE IF EXISTS saludmascota CASCADE;
 CREATE TABLE Madre (
   Ci       varchar(255) NOT NULL, 
   Nombre   varchar(255), 
@@ -31,6 +38,7 @@ INSERT INTO Hijo(Ci, MadreCi, Nombre) VALUES ('4', '2', 'carlos');
 INSERT INTO Hijo(Ci, MadreCi, Nombre) VALUES ('5', '2', 'gonzalo');
 INSERT INTO Mascota(Nombre, Registro) VALUES ('doki', '112');
 INSERT INTO Mascota(Nombre, Registro) VALUES ('rambo', '113');
-INSERT INTO Mascota(Nombre, Registro) VALUES ('', null);
+INSERT INTO Mascota(Nombre, Registro) VALUES ('beider', '114');
 INSERT INTO saludmascota(Registroveterinaria, Nombreveterinaria, MascotaNombre, HijoCi) VALUES ('221', 'la roca', 'doki', '2');
 INSERT INTO saludmascota(Registroveterinaria, Nombreveterinaria, MascotaNombre, HijoCi) VALUES ('222', 'el paso', 'rambo', '1');
+INSERT INTO saludmascota(Registroveterinaria, Nombreveterinaria, MascotaNombre, HijoCi) VALUES ('223', 'el paso', 'beider', '2');
