@@ -15,6 +15,7 @@
         <table border="1">
             <tbody><th>ci</th><th>nombre</th><th>Mod</th><th>Borrar</th>
             <th>Listar Mascota</th><th>Cambiar Dueno</th>
+            <th>Cambiar Dueno (listar con Clase)</th>
         </tbody>
         
         <c:forEach items="${mivariable}" var="dato" >
@@ -37,6 +38,9 @@
                 </td>
                 <td> 
                     <h1><a href="<c:url value="cambiarduenomascota.html?ci=${dato.getCi()}"/>">Cambiar</a></h1>
+                </td>
+                <td> 
+                    <h1><a href="<c:url value="cambiarduenomascotacompleto.html?ci=${dato.getCi()}"/>">Cambiar</a></h1>
                 </td>
              </tr>
         </c:forEach>

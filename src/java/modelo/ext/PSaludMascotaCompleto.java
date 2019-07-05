@@ -6,17 +6,15 @@
 package modelo.ext;
 import java.util.List;
 import modelo.saludmascota;
-
+import modelo.Mascota;
 /**
  *
  * @author alumno
  */
-public class PSaludMascota {
+public class PSaludMascotaCompleto {
   public String nombre;
   public String registro;
-       
-  private List  nombrea;
-
+  private List <Mascota> mascotas;
     public String getNombre() {
         return nombre;
     }
@@ -32,21 +30,13 @@ public class PSaludMascota {
     public void setRegistro(String registro) {
         this.registro = registro;
     }
-  private List registroa;
 
-    public List getNombrea() {
-        return nombrea;
+    public List<Mascota> getMascotas() {
+        return mascotas;
     }
 
-    public void setNombrea(List nombrea) {
-        this.nombrea = nombrea;
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
     }
-
-    public List getRegistroa() {
-        return registroa;
-    }
-
-    public void setRegistroa(List registroa) {
-        this.registroa = registroa;
-    }
+  
 }

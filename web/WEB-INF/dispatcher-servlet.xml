@@ -27,6 +27,7 @@
                 <prop key="listarhijo.html">formlistarHijoControlador</prop>
                 <prop key="modificarhijo.html">formmodificarHijoControlador</prop>               
                 <prop key="cambiarduenomascota.html">formguardarSaludMascotaControlador</prop>
+                <prop key="cambiarduenomascotacompleto.html">formguardarSaludMascotaControladorCompleto</prop>
                 
             </props>
         </property>
@@ -50,5 +51,6 @@
     <bean name="formlistarHijoControlador" class="controlador.hijo.ListarHijoControlador" />
     <bean name="formmodificarHijoControlador" class="controlador.hijo.ModificarHijoControlador" />   
     <bean name="formguardarSaludMascotaControlador" class="controlador.saludmascota.GuardarSaludMascotaControlador" />
+    <bean name="formguardarSaludMascotaControladorCompleto" class="controlador.saludmascota.GuardarSaludMascotaControladorCompleto" />
     
 </beans>
