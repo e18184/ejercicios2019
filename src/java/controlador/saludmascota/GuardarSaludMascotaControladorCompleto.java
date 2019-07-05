@@ -53,12 +53,16 @@ public class GuardarSaludMascotaControladorCompleto {
          
         for (Iterator iterator = sm.iterator(); iterator.hasNext();) {
           saludmascota  smasc = (saludmascota)iterator.next();
-         
+          Mascota m = new Mascota();
+          
           lmascotas.add(smasc.getMascota());
           
       }
           PSaludMascotaCompleto ps = new PSaludMascotaCompleto();
           ps.setMascotas(lmascotas);
+          Mascota m = new Mascota();
+          //m.saludmascotas.toArray()
+          
           
          
           

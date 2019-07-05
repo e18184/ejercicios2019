@@ -14,6 +14,15 @@ import modelo.Mascota;
 public class PSaludMascotaCompleto {
   public String nombre;
   public String registro;
+  public String nombreveterinaria;
+
+    public String getNombreveterinaria() {
+        return nombreveterinaria;
+    }
+
+    public void setNombreveterinaria(String nombreveterinaria) {
+        this.nombreveterinaria = nombreveterinaria;
+    }
   private List <Mascota> mascotas;
     public String getNombre() {
         return nombre;

@@ -13,7 +13,7 @@
         
         <table border="1">
         <tbody>
-            <th>nombres</th><th>registro</th>
+            <th>nombres</th><th>registro</th><th>veterinaria</th>
         </tbody>
         <form:form action="cambiarduenomascotacompleto.html" method="POST" commandName="lista">
          <c:forEach var="mascota" items="${lista.getMascotas()}">
@@ -28,6 +28,11 @@
                  <td>
                      <form:label path="registro"><c:out value="${mascota.getRegistro()}"></c:out></form:label>
                  </td>
+                 <td>
+                     <c:forEach var="veterinaria" items="${mascota.saludmascotas.toArray()}">
+                      <c:out value="${veterinaria.getRegistroveterinaria()}"></c:out>
+                     </c:forEach>
+                  </td>
              </tr>
               </c:forEach>
            <form:button>Aceptar</form:button>
