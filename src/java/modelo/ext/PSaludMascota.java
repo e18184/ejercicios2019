@@ -14,8 +14,8 @@ import modelo.saludmascota;
 public class PSaludMascota {
   public String nombre;
   public String registro;
-       
-  private List  nombrea;
+  public boolean esmascota;
+  public List<PSaludMascota>  lista;
 
     public String getNombre() {
         return nombre;
@@ -32,21 +32,12 @@ public class PSaludMascota {
     public void setRegistro(String registro) {
         this.registro = registro;
     }
-  private List registroa;
 
-    public List getNombrea() {
-        return nombrea;
+    public List<PSaludMascota> getLista() {
+        return lista;
     }
 
-    public void setNombrea(List nombrea) {
-        this.nombrea = nombrea;
-    }
-
-    public List getRegistroa() {
-        return registroa;
-    }
-
-    public void setRegistroa(List registroa) {
-        this.registroa = registroa;
+    public void setLista(List<PSaludMascota> lista) {
+        this.lista = lista;
     }
 }

@@ -32,7 +32,7 @@ import modelo.ext.PSaludMascota;
 @Controller 
 // ASOCIA CON LA VISTA
 @RequestMapping("cambiarduenomascota")
-public class GuardarSaludMascotaControlador {
+public class GuardarSaludMascotaControlador2 {
   @RequestMapping(method=RequestMethod.GET)
   public String listarGet(Model model){
       //ModelAndView vista = new ModelAndView("cambiarduenomascota");
@@ -48,7 +48,7 @@ public class GuardarSaludMascotaControlador {
           
           
       } catch (PersistentException ex) {
-          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(GuardarSaludMascotaControlador2.class.getName()).log(Level.SEVERE, null, ex);
       }
          List<PSaludMascota> listainterna = new ArrayList<PSaludMascota>();
          

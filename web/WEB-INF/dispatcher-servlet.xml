@@ -50,7 +50,7 @@
     <bean name="formborrarMadreControlador" class="controlador.madre.BorrarMadreControlador" />
     <bean name="formlistarHijoControlador" class="controlador.hijo.ListarHijoControlador" />
     <bean name="formmodificarHijoControlador" class="controlador.hijo.ModificarHijoControlador" />   
-    <bean name="formguardarSaludMascotaControlador" class="controlador.saludmascota.GuardarSaludMascotaControlador" />
+    <bean name="formguardarSaludMascotaControlador" class="controlador.saludmascota.GuardarSaludMascotaControlador2" />
     <bean name="formguardarSaludMascotaControladorCompleto" class="controlador.saludmascota.GuardarSaludMascotaControladorCompleto" />
     
 </beans>

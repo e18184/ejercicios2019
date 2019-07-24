@@ -16,19 +16,18 @@
             <th>nombres</th><th>registro</th>
         </tbody>
         <form:form action="cambiarduenomascota.html" method="POST" commandName="lista">
-         <c:forEach var="nombre" items="${lista.getNombrea()}">
+         <c:forEach var="nombre" items="${lista.getLista()}">
             <tr>
                 <td>
                     <form:checkbox path="nombre" value="${nombre}" label="${nombre}"/>
-                    <br>    
+                       
                 </td>
-             </tr> 
-           </c:forEach>
-             <tr>
                  <td>
-                     <form:checkbox path="registro" value="prueba" label="prueba"  />
+                     <form:input path="registro" value="registro"/>
+                     
                  </td>
              </tr>
+             </c:forEach>
            <form:button>Aceptar</form:button>
          </form:form>
         
