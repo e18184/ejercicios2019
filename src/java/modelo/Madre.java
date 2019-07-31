@@ -13,8 +13,7 @@
  */
 package modelo;
 
-import java.io.Serializable;
-public class Madre implements Serializable {
+public class Madre {
 	public Madre() {
 	}
 	

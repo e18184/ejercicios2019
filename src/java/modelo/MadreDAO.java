@@ -21,7 +21,7 @@ import java.util.List;
 public class MadreDAO {
 	public static Madre loadMadreByORMID(String ci) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMadreByORMID(session, ci);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class MadreDAO {
 	
 	public static Madre getMadreByORMID(String ci) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getMadreByORMID(session, ci);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class MadreDAO {
 	
 	public static Madre loadMadreByORMID(String ci, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMadreByORMID(session, ci, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class MadreDAO {
 	
 	public static Madre getMadreByORMID(String ci, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getMadreByORMID(session, ci, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class MadreDAO {
 	
 	public static List queryMadre(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryMadre(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class MadreDAO {
 	
 	public static List queryMadre(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryMadre(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class MadreDAO {
 	
 	public static Madre[] listMadreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listMadreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class MadreDAO {
 	
 	public static Madre[] listMadreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listMadreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class MadreDAO {
 	
 	public static Madre loadMadreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMadreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class MadreDAO {
 	
 	public static Madre loadMadreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMadreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class MadreDAO {
 	
 	public static java.util.Iterator iterateMadreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateMadreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class MadreDAO {
 	
 	public static java.util.Iterator iterateMadreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateMadreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class MadreDAO {
 	
 	public static boolean save(modelo.Madre madre) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().saveObject(madre);
+			Ejercicios2019PersistentManager.instance().saveObject(madre);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class MadreDAO {
 	
 	public static boolean delete(modelo.Madre madre) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().deleteObject(madre);
+			Ejercicios2019PersistentManager.instance().deleteObject(madre);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class MadreDAO {
 	
 	public static boolean refresh(modelo.Madre madre) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().refresh(madre);
+			Ejercicios2019PersistentManager.instance().getSession().refresh(madre);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class MadreDAO {
 	
 	public static boolean evict(modelo.Madre madre) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().evict(madre);
+			Ejercicios2019PersistentManager.instance().getSession().evict(madre);
 			return true;
 		}
 		catch (Exception e) {

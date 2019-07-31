@@ -41,7 +41,7 @@ public class saludmascotaCriteria extends AbstractORMCriteria {
 	}
 	
 	public saludmascotaCriteria() throws PersistentException {
-		this(PrimeroproyectoPersistentManager.instance().getSession());
+		this(Ejercicios2019PersistentManager.instance().getSession());
 	}
 	
 	public MascotaCriteria createMascotaCriteria() {

@@ -26,20 +26,22 @@ import org.springframework.ui.Model;
 public class ListarMadreControlador {
   @RequestMapping(method=RequestMethod.GET)
   public ModelAndView listarGet(Model modelo){
-      ModelAndView vista = new ModelAndView();
+          ModelAndView vista = new ModelAndView();
+   
+      try {
           
      
           Madre[] madres=null;
-      try {
           madres = MadreDAO.listMadreByQuery(null,"nombre ASC");
-      } catch (PersistentException ex) {
-          Logger.getLogger(ListarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
-          // select * from Madre 
+          // select * from Madre
           // where 
           // ci = 3
           modelo.addAttribute("mivariable",madres);
-      
-      return vista;
+          
+      } catch (PersistentException ex) {
+          Logger.getLogger(ListarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
+      }
+             return vista;
+   
   }
 }

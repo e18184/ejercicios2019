@@ -6,12 +6,11 @@ License Type: Evaluation
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="modelo.saludmascota" table="saludmascota" lazy="false">
-		<id name="registroveterinaria" column="Registroveterinaria" type="string">
-			<generator class="assigned">
-			</generator>
-		</id>
-		<property name="nombreveterinaria" column="Nombreveterinaria" type="string" length="255" not-null="false" lazy="false"/>
-		<many-to-one name="ORM_Mascota" cascade="lock" column="MascotaNombre" class="modelo.Mascota" not-null="false" lazy="false">
+		<composite-id>
+			<key-property name="registroveterinaria" column="Registroveterinaria" type="string"/>
+			<key-property name="nombreveterinaria" column="Nombreveterinaria" type="string"/>
+		</composite-id>
+		<many-to-one name="ORM_Mascota" cascade="lock" column="MascotaNombre" class="modelo.Mascota" not-null="true" lazy="false">
 		</many-to-one>
 		<many-to-one name="ORM_Hijo" cascade="lock" column="HijoCi" class="modelo.Hijo" not-null="true" lazy="false">
 		</many-to-one>

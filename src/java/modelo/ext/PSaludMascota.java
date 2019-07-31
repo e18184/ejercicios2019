@@ -17,6 +17,14 @@ public class PSaludMascota {
   public boolean esmascota;
   public List<PSaludMascota>  lista;
 
+    public boolean isEsmascota() {
+        return esmascota;
+    }
+
+    public void setEsmascota(boolean esmascota) {
+        this.esmascota = esmascota;
+    }
+
     public String getNombre() {
         return nombre;
     }

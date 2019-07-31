@@ -14,8 +14,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.HijoDAO;
+import modelo.Hijo;
 import modelo.MascotaDAO;
 import modelo.Mascota;
+import modelo.saludmascotaCriteria;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +27,10 @@ import org.orm.PersistentException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import modelo.ext.PSaludMascota;
+
+import org.orm.criteria.StringExpression;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -34,19 +41,16 @@ import modelo.ext.PSaludMascota;
 @RequestMapping("cambiarduenomascota")
 public class GuardarSaludMascotaControlador {
   @RequestMapping(method=RequestMethod.GET)
-  public String listarGet(Model model){
+  public String listarGet(Model model, @RequestParam("ci") String mci){
       //ModelAndView vista = new ModelAndView("cambiarduenomascota");
-      List <saludmascota> sm = null;
+     
       List <PSaludMascota> lmascota =null;
        
       try {
-         
-          lmascota = MascotaDAO.queryMascota(null,null);
-          
-          System.out.println("valor de sm:"+sm);
-         
-          
-          
+          // devuelve los datos en base al ci pasado por la url
+          Hijo lhijo = HijoDAO.getHijoByORMID(mci);
+      
+      lmascota = MascotaDAO.queryMascota(null,null);
       } catch (PersistentException ex) {
           Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
       }
@@ -56,14 +60,31 @@ public class GuardarSaludMascotaControlador {
           Mascota  masc = (Mascota)iterator.next();
           // condicion    
           // ordenado
-         saludmascotaDAO.q
-           sm = saludmascotaDAO.querySaludmascota("getNombre()="+masc.getNombre()+" AND ",null);
+          //smpreguntar = saludmascotaDAO.loadSaludmascotaByQuery("", orderBy)
+           
+          saludmascota[] lsmpreguntar = null;
+          saludmascotaCriteria smpreguntar = null;
+          try {
+              smpreguntar = new saludmascotaCriteria();
+          } catch (PersistentException ex) {
+              Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          smpreguntar.hijoId.eq(mci);
+          lsmpreguntar = smpreguntar.listSaludmascota();
+          for(int i=0;i<lsmpreguntar.length;i++){
+              System.out.println("nombre la mascota:"+lsmpreguntar[i].getMascota());
+          }
           
-           listainterna.
           
+          PSaludMascota psm = new PSaludMascota();
+          psm.setNombre(masc.getNombre());
+          psm.setRegistro(masc.getRegistro());
+          psm.setEsmascota(lsmpreguntar!=null); 
+         listainterna.add(psm);
       }
           PSaludMascota ps = new PSaludMascota();
           ps.setLista(listainterna);
+          
           
           
           //vista.addObject("mivariable",ps);

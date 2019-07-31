@@ -50,11 +50,7 @@ public class ModificarHijoControlador {
           // insert into madre (ci,nombre,apellido) values 
           // :phijo.get
           System.out.println("Los datos se modificaron");
-      try {
           HijoDAO.save(phijo);
-      } catch (PersistentException ex) {
-          Logger.getLogger(ModificarHijoControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
           
      
       return vista;

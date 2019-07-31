@@ -39,17 +39,8 @@ public class GuardarSaludMascotaControlador2 {
       List <saludmascota> sm = null;
       List <PSaludMascota> lmascota =null;
        
-      try {
-         
-          lmascota = MascotaDAO.queryMascota(null,null);
-          
-          System.out.println("valor de sm:"+sm);
-         
-          
-          
-      } catch (PersistentException ex) {
-          Logger.getLogger(GuardarSaludMascotaControlador2.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      lmascota = MascotaDAO.queryMascota(null,null);
+      System.out.println("valor de sm:"+sm);
          List<PSaludMascota> listainterna = new ArrayList<PSaludMascota>();
          
         for (Iterator iterator = lmascota.iterator(); iterator.hasNext();) {

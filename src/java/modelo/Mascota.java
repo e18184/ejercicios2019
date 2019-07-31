@@ -13,8 +13,7 @@
  */
 package modelo;
 
-import java.io.Serializable;
-public class Mascota implements Serializable {
+public class Mascota {
 	public Mascota() {
 	}
 	

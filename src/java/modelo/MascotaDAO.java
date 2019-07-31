@@ -21,7 +21,7 @@ import java.util.List;
 public class MascotaDAO {
 	public static Mascota loadMascotaByORMID(String nombre) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMascotaByORMID(session, nombre);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class MascotaDAO {
 	
 	public static Mascota getMascotaByORMID(String nombre) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getMascotaByORMID(session, nombre);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class MascotaDAO {
 	
 	public static Mascota loadMascotaByORMID(String nombre, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMascotaByORMID(session, nombre, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class MascotaDAO {
 	
 	public static Mascota getMascotaByORMID(String nombre, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getMascotaByORMID(session, nombre, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class MascotaDAO {
 	
 	public static List queryMascota(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryMascota(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class MascotaDAO {
 	
 	public static List queryMascota(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryMascota(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class MascotaDAO {
 	
 	public static Mascota[] listMascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listMascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class MascotaDAO {
 	
 	public static Mascota[] listMascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listMascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class MascotaDAO {
 	
 	public static Mascota loadMascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class MascotaDAO {
 	
 	public static Mascota loadMascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadMascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class MascotaDAO {
 	
 	public static java.util.Iterator iterateMascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateMascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class MascotaDAO {
 	
 	public static java.util.Iterator iterateMascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateMascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class MascotaDAO {
 	
 	public static boolean save(modelo.Mascota mascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().saveObject(mascota);
+			Ejercicios2019PersistentManager.instance().saveObject(mascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class MascotaDAO {
 	
 	public static boolean delete(modelo.Mascota mascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().deleteObject(mascota);
+			Ejercicios2019PersistentManager.instance().deleteObject(mascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class MascotaDAO {
 	
 	public static boolean refresh(modelo.Mascota mascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().refresh(mascota);
+			Ejercicios2019PersistentManager.instance().getSession().refresh(mascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class MascotaDAO {
 	
 	public static boolean evict(modelo.Mascota mascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().evict(mascota);
+			Ejercicios2019PersistentManager.instance().getSession().evict(mascota);
 			return true;
 		}
 		catch (Exception e) {

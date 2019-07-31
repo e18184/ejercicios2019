@@ -49,11 +49,7 @@ public class ModificarMadreControlador {
           // insert into madre (ci,nombre,apellido) values 
           // :pmadre.get
           System.out.println("Los datos se modificaron");
-      try {
           MadreDAO.save(pmadre);
-      } catch (PersistentException ex) {
-          Logger.getLogger(ModificarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
           
      
       return vista;

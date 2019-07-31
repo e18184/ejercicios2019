@@ -93,7 +93,7 @@ public class HijoSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return PrimeroproyectoPersistentManager.instance();
+		return Ejercicios2019PersistentManager.instance();
 	}
 	
 }

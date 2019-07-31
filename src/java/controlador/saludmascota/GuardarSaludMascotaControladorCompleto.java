@@ -37,16 +37,8 @@ public class GuardarSaludMascotaControladorCompleto {
       //ModelAndView vista = new ModelAndView("cambiarduenomascota");
       List <saludmascota> sm = null;
        
-      try {
-          sm = saludmascotaDAO.querySaludmascota(null,null);
-          
-          System.out.println("valor de sm:"+sm);
-         
-          
-          
-      } catch (PersistentException ex) {
-          Logger.getLogger(GuardarSaludMascotaControladorCompleto.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      sm = saludmascotaDAO.querySaludmascota(null,null);
+      System.out.println("valor de sm:"+sm);
       // lista de mascotas
          List<modelo.Mascota> lmascotas = new ArrayList<Mascota>();
          

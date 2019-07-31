@@ -19,10 +19,10 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class saludmascotaDAO {
-	public static saludmascota loadSaludmascotaByORMID(String registroveterinaria) throws PersistentException {
+	public static saludmascota loadSaludmascotaByORMID(String registroveterinaria, String nombreveterinaria) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
-			return loadSaludmascotaByORMID(session, registroveterinaria);
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
+			return loadSaludmascotaByORMID(session, registroveterinaria, nombreveterinaria);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -30,10 +30,10 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota getSaludmascotaByORMID(String registroveterinaria) throws PersistentException {
+	public static saludmascota getSaludmascotaByORMID(String registroveterinaria, String nombreveterinaria) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
-			return getSaludmascotaByORMID(session, registroveterinaria);
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
+			return getSaludmascotaByORMID(session, registroveterinaria, nombreveterinaria);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota loadSaludmascotaByORMID(String registroveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static saludmascota loadSaludmascotaByORMID(String registroveterinaria, String nombreveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
-			return loadSaludmascotaByORMID(session, registroveterinaria, lockMode);
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
+			return loadSaludmascotaByORMID(session, registroveterinaria, nombreveterinaria, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota getSaludmascotaByORMID(String registroveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static saludmascota getSaludmascotaByORMID(String registroveterinaria, String nombreveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
-			return getSaludmascotaByORMID(session, registroveterinaria, lockMode);
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
+			return getSaludmascotaByORMID(session, registroveterinaria, nombreveterinaria, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -63,9 +63,13 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota loadSaludmascotaByORMID(PersistentSession session, String registroveterinaria) throws PersistentException {
+	public static saludmascota loadSaludmascotaByORMID(PersistentSession session, String registroveterinaria, String nombreveterinaria) throws PersistentException {
 		try {
-			return (saludmascota) session.load(modelo.saludmascota.class, registroveterinaria);
+			saludmascota saludmascota = new modelo.saludmascota();
+			saludmascota.setRegistroveterinaria(registroveterinaria);
+			saludmascota.setNombreveterinaria(nombreveterinaria);
+			
+			return (saludmascota) session.load(modelo.saludmascota.class, saludmascota);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +77,13 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota getSaludmascotaByORMID(PersistentSession session, String registroveterinaria) throws PersistentException {
+	public static saludmascota getSaludmascotaByORMID(PersistentSession session, String registroveterinaria, String nombreveterinaria) throws PersistentException {
 		try {
-			return (saludmascota) session.get(modelo.saludmascota.class, registroveterinaria);
+			saludmascota saludmascota = new modelo.saludmascota();
+			saludmascota.setRegistroveterinaria(registroveterinaria);
+			saludmascota.setNombreveterinaria(nombreveterinaria);
+			
+			return (saludmascota) session.get(modelo.saludmascota.class, saludmascota);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +91,13 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota loadSaludmascotaByORMID(PersistentSession session, String registroveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static saludmascota loadSaludmascotaByORMID(PersistentSession session, String registroveterinaria, String nombreveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (saludmascota) session.load(modelo.saludmascota.class, registroveterinaria, lockMode);
+			saludmascota saludmascota = new modelo.saludmascota();
+			saludmascota.setRegistroveterinaria(registroveterinaria);
+			saludmascota.setNombreveterinaria(nombreveterinaria);
+			
+			return (saludmascota) session.load(modelo.saludmascota.class, saludmascota, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +105,13 @@ public class saludmascotaDAO {
 		}
 	}
 	
-	public static saludmascota getSaludmascotaByORMID(PersistentSession session, String registroveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static saludmascota getSaludmascotaByORMID(PersistentSession session, String registroveterinaria, String nombreveterinaria, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (saludmascota) session.get(modelo.saludmascota.class, registroveterinaria, lockMode);
+			saludmascota saludmascota = new modelo.saludmascota();
+			saludmascota.setRegistroveterinaria(registroveterinaria);
+			saludmascota.setNombreveterinaria(nombreveterinaria);
+			
+			return (saludmascota) session.get(modelo.saludmascota.class, saludmascota, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +121,7 @@ public class saludmascotaDAO {
 	
 	public static List querySaludmascota(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return querySaludmascota(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +132,7 @@ public class saludmascotaDAO {
 	
 	public static List querySaludmascota(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return querySaludmascota(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +143,7 @@ public class saludmascotaDAO {
 	
 	public static saludmascota[] listSaludmascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listSaludmascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +154,7 @@ public class saludmascotaDAO {
 	
 	public static saludmascota[] listSaludmascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listSaludmascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +220,7 @@ public class saludmascotaDAO {
 	
 	public static saludmascota loadSaludmascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadSaludmascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +231,7 @@ public class saludmascotaDAO {
 	
 	public static saludmascota loadSaludmascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadSaludmascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +258,7 @@ public class saludmascotaDAO {
 	
 	public static java.util.Iterator iterateSaludmascotaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateSaludmascotaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +269,7 @@ public class saludmascotaDAO {
 	
 	public static java.util.Iterator iterateSaludmascotaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateSaludmascotaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +317,7 @@ public class saludmascotaDAO {
 	
 	public static boolean save(modelo.saludmascota lsaludmascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().saveObject(lsaludmascota);
+			Ejercicios2019PersistentManager.instance().saveObject(lsaludmascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +328,7 @@ public class saludmascotaDAO {
 	
 	public static boolean delete(modelo.saludmascota lsaludmascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().deleteObject(lsaludmascota);
+			Ejercicios2019PersistentManager.instance().deleteObject(lsaludmascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -364,7 +380,7 @@ public class saludmascotaDAO {
 	
 	public static boolean refresh(modelo.saludmascota lsaludmascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().refresh(lsaludmascota);
+			Ejercicios2019PersistentManager.instance().getSession().refresh(lsaludmascota);
 			return true;
 		}
 		catch (Exception e) {
@@ -375,7 +391,7 @@ public class saludmascotaDAO {
 	
 	public static boolean evict(modelo.saludmascota lsaludmascota) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().evict(lsaludmascota);
+			Ejercicios2019PersistentManager.instance().getSession().evict(lsaludmascota);
 			return true;
 		}
 		catch (Exception e) {

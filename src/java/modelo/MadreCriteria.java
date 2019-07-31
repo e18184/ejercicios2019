@@ -37,7 +37,7 @@ public class MadreCriteria extends AbstractORMCriteria {
 	}
 	
 	public MadreCriteria() throws PersistentException {
-		this(PrimeroproyectoPersistentManager.instance().getSession());
+		this(Ejercicios2019PersistentManager.instance().getSession());
 	}
 	
 	public HijoCriteria createHijosCriteria() {

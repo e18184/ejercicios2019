@@ -34,7 +34,7 @@ public class ListarHijoControlador {
          System.out.println("carnet de identidad madre"+mci);
           Madre madre = null;
           try {
-              // me devuelve una madre 
+              // me devuelve una madre
               madre = MadreDAO.getMadreByORMID(mci);
           } catch (PersistentException ex) {
               Logger.getLogger(ListarHijoControlador.class.getName()).log(Level.SEVERE, null, ex);

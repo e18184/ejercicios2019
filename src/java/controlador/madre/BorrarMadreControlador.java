@@ -29,11 +29,7 @@ public class BorrarMadreControlador {
       ModelAndView vista = new ModelAndView();
       vista.setViewName("borrarmadre");
       Madre m=null;
-      try {
-          m = MadreDAO.getMadreByORMID(ci);
-      } catch (PersistentException ex) {
-          Logger.getLogger(BorrarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      m = MadreDAO.getMadreByORMID(ci);
       vista.addObject("madre",m);
       
       return vista;
@@ -47,11 +43,7 @@ public class BorrarMadreControlador {
       // insert into madre (ci,nombre,apellido) values
       // :pmadre.get
       System.out.println("Los datos se modificaron");
-      try {
-          MadreDAO.delete(pmadre);
-      } catch (PersistentException ex) {
-          Logger.getLogger(BorrarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      MadreDAO.delete(pmadre);
       return vista;
   }
   

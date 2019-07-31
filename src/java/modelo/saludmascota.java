@@ -26,12 +26,15 @@ public class saludmascota implements Serializable {
 		saludmascota saludmascota = (saludmascota)aObj;
 		if ((getRegistroveterinaria() != null && !getRegistroveterinaria().equals(saludmascota.getRegistroveterinaria())) || (getRegistroveterinaria() == null && saludmascota.getRegistroveterinaria() != null))
 			return false;
+		if ((getNombreveterinaria() != null && !getNombreveterinaria().equals(saludmascota.getNombreveterinaria())) || (getNombreveterinaria() == null && saludmascota.getNombreveterinaria() != null))
+			return false;
 		return true;
 	}
 	
 	public int hashCode() {
 		int hashcode = 0;
 		hashcode = hashcode + (getRegistroveterinaria() == null ? 0 : getRegistroveterinaria().hashCode());
+		hashcode = hashcode + (getNombreveterinaria() == null ? 0 : getNombreveterinaria().hashCode());
 		return hashcode;
 	}
 	
@@ -66,10 +69,6 @@ public class saludmascota implements Serializable {
 	
 	public String getRegistroveterinaria() {
 		return registroveterinaria;
-	}
-	
-	public String getORMID() {
-		return getRegistroveterinaria();
 	}
 	
 	public void setNombreveterinaria(String value) {
@@ -129,7 +128,7 @@ public class saludmascota implements Serializable {
 	}
 	
 	public String toString() {
-		return String.valueOf(getRegistroveterinaria());
+		return String.valueOf(getRegistroveterinaria() + " " + getNombreveterinaria());
 	}
 	
 }

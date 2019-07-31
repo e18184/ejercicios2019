@@ -45,13 +45,9 @@ public class InsertarMadreControlador {
           System.out.println("ci de la madre:"+pmadre.getCi());
           System.out.println("nombre de la madre:"+pmadre.getNombre());
           System.out.println("apellido de la madre:"+pmadre.getApellido());
-      try {
           // insert into madre (ci,nombre,apellido) values
           // :pmadre.get
           MadreDAO.save(pmadre);
-      } catch (PersistentException ex) {
-          Logger.getLogger(InsertarMadreControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
           
       
       return vista;

@@ -10,9 +10,9 @@ License Type: Evaluation
 			<generator class="assigned">
 			</generator>
 		</id>
-		<property name="registro" column="Registro" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="registro" column="Registro" type="string" length="255" not-null="false" lazy="false"/>
 		<set name="ORM_Saludmascotas" lazy="true" cascade="save-update,lock" inverse="true">
-			<key column="MascotaNombre" not-null="false"/>
+			<key column="MascotaNombre" not-null="true"/>
 			<one-to-many class="modelo.saludmascota"/>
 		</set>
 	</class>

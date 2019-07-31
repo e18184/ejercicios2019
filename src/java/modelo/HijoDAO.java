@@ -21,7 +21,7 @@ import java.util.List;
 public class HijoDAO {
 	public static Hijo loadHijoByORMID(String ci) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadHijoByORMID(session, ci);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class HijoDAO {
 	
 	public static Hijo getHijoByORMID(String ci) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getHijoByORMID(session, ci);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class HijoDAO {
 	
 	public static Hijo loadHijoByORMID(String ci, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadHijoByORMID(session, ci, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class HijoDAO {
 	
 	public static Hijo getHijoByORMID(String ci, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return getHijoByORMID(session, ci, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class HijoDAO {
 	
 	public static List queryHijo(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryHijo(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class HijoDAO {
 	
 	public static List queryHijo(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return queryHijo(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class HijoDAO {
 	
 	public static Hijo[] listHijoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listHijoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class HijoDAO {
 	
 	public static Hijo[] listHijoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return listHijoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class HijoDAO {
 	
 	public static Hijo loadHijoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadHijoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class HijoDAO {
 	
 	public static Hijo loadHijoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return loadHijoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class HijoDAO {
 	
 	public static java.util.Iterator iterateHijoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateHijoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class HijoDAO {
 	
 	public static java.util.Iterator iterateHijoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = PrimeroproyectoPersistentManager.instance().getSession();
+			PersistentSession session = Ejercicios2019PersistentManager.instance().getSession();
 			return iterateHijoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class HijoDAO {
 	
 	public static boolean save(modelo.Hijo hijo) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().saveObject(hijo);
+			Ejercicios2019PersistentManager.instance().saveObject(hijo);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class HijoDAO {
 	
 	public static boolean delete(modelo.Hijo hijo) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().deleteObject(hijo);
+			Ejercicios2019PersistentManager.instance().deleteObject(hijo);
 			return true;
 		}
 		catch (Exception e) {
@@ -364,7 +364,7 @@ public class HijoDAO {
 	
 	public static boolean refresh(modelo.Hijo hijo) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().refresh(hijo);
+			Ejercicios2019PersistentManager.instance().getSession().refresh(hijo);
 			return true;
 		}
 		catch (Exception e) {
@@ -375,7 +375,7 @@ public class HijoDAO {
 	
 	public static boolean evict(modelo.Hijo hijo) throws PersistentException {
 		try {
-			PrimeroproyectoPersistentManager.instance().getSession().evict(hijo);
+			Ejercicios2019PersistentManager.instance().getSession().evict(hijo);
 			return true;
 		}
 		catch (Exception e) {
