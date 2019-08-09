@@ -10,29 +10,36 @@
     <body>
         
         <h1> Listar las mascotas </h1>
+        <form:form action="cambiarduenomascota.html" method="POST" commandName="lista">
         
         <table border="1">
         <tbody>
-            <th>nombres</th><th>registro</th>
+            <th>nombres</th><th>registro</th><th>es</th>
         </tbody>
-        <form:form action="cambiarduenomascota.html" method="POST" commandName="lista">
-         <c:forEach var="nombre" items="${lista.getLista()}">
+         <c:forEach var="l" items="${lista.getLista()}">
             <tr>
                 <td>
-                    <form:checkbox path="nombre" value="${nombre}" label="${nombre}"/>
-                       
+                    ss
+                    <!--<form:checkbox path="nombre" value="${l.getNombre()}" 
+                                   checked="${l.isEsmascota()?'checked':''}"/>-->
+                      
                 </td>
                  <td>
-                     <form:input path="registro" value="registro"/>
+                     <form:input path="registro" value="${l.getRegistro()}" 
+                                 label="${l.getRegistro()}"/>
                      
                  </td>
+                 <td>
+                     <c:out value="${l.isEsmascota()}"></c:out>
+                     
+                 </td>
+                 
              </tr>
-             </c:forEach>
-           <form:button>Aceptar</form:button>
+          </c:forEach>             
+        </table>  
+         <form:button>Aceptar</form:button>
          </form:form>
         
              <a href="listarmadre.html">Volver</a>
-             
-        </table>  
             
     </body>

@@ -21,6 +21,7 @@ import org.orm.PersistentException;
 import org.springframework.ui.Model;
 import modelo.ext.PSaludMascota;
 import modelo.saludmascota;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -57,7 +58,8 @@ public class GuardarSaludMascotaControlador {
           saludmascota[] sm2 = lhijo.saludmascotas.toArray();
             for (int i = 0; i < sm2.length; i++) {
                 saludmascota ms = (saludmascota)sm2[i];
-                psm.setEsmascota(masc.getNombre()==ms.getMascota().getNombre());
+                if ((masc.getNombre()==ms.getMascota().getNombre()) && (lhijo.getCi()==ms.getHijo().getCi()))
+                    psm.setEsmascota((masc.getNombre()==ms.getMascota().getNombre()) && (lhijo.getCi()==ms.getHijo().getCi()));
                 //if (masc.getNombre()==ms.getMascota().getNombre())
                     System.out.println("mascotas del hijo"+psm.getNombre()+"  "+psm.isEsmascota());
             }
@@ -79,7 +81,8 @@ public class GuardarSaludMascotaControlador {
       }
       return "cambiarduenomascota";
   }
- /** @ModelAttribute("lista") 
+ /**
+     * @param lista *  @ModelAttribute("lista") 
   public List<saludmascota> getListaMascotaSalud(){
    List sm = null;
       try {  
@@ -99,5 +102,17 @@ public class GuardarSaludMascotaControlador {
       }
    return sm;
   }
+     * @param <error>
+     * @return 
   **/
+  @RequestMapping(method=RequestMethod.POST)
+  public String guardarPost(@ModelAttribute("lista") PSaludMascota lista ){
+      
+      for (Iterator iterator = lista.getLista().iterator(); iterator.hasNext();) {
+          PSaludMascota objeto = (PSaludMascota)iterator.next();
+           System.out.println("nombre"+objeto.nombre);
+          
+      }
+     return "cambiarduenomascota";
+  }
 }
