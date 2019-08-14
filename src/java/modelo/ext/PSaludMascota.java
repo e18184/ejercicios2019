@@ -21,6 +21,10 @@ public class PSaludMascota {
         return esmascota;
     }
 
+    public String cadenaesmascota(){
+        return Boolean.toString(esmascota);
+    }
+    
     public void setEsmascota(boolean esmascota) {
         this.esmascota = esmascota;
     }

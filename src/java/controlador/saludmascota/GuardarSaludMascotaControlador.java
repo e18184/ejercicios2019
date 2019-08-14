@@ -5,6 +5,7 @@
  */
 package controlador.saludmascota;
 
+import com.sun.corba.se.spi.activation._ActivatorImplBase;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -61,7 +62,7 @@ public class GuardarSaludMascotaControlador {
                 if ((masc.getNombre()==ms.getMascota().getNombre()) && (lhijo.getCi()==ms.getHijo().getCi()))
                     psm.setEsmascota((masc.getNombre()==ms.getMascota().getNombre()) && (lhijo.getCi()==ms.getHijo().getCi()));
                 //if (masc.getNombre()==ms.getMascota().getNombre())
-                    System.out.println("mascotas del hijo"+psm.getNombre()+"  "+psm.isEsmascota());
+                 //   System.out.println("mascotas del hijo"+psm.getNombre()+"  "+psm.isEsmascota());
             }
                   
           //psm.setEsmascota(lsmpreguntar!=null); 
@@ -106,13 +107,21 @@ public class GuardarSaludMascotaControlador {
      * @return 
   **/
   @RequestMapping(method=RequestMethod.POST)
-  public String guardarPost(@ModelAttribute("lista") PSaludMascota lista ){
-      
-      for (Iterator iterator = lista.getLista().iterator(); iterator.hasNext();) {
-          PSaludMascota objeto = (PSaludMascota)iterator.next();
-           System.out.println("nombre"+objeto.nombre);
+  public String guardarPost(@ModelAttribute("lista") PSaludMascota psm, @RequestParam(value ="nombre") String nombre[] 
+  , @RequestParam(value ="registro") String reg[]) 
+  {
+      for (int i = 0; i < nombre.length; i++) {
+          
+          String string = nombre[i];
+          String registrootro = reg[i];
+          //String recibido=karen[i];
+          System.out.println("nombre:"+string+"+++registro:"+registrootro +"===="+recibido );
           
       }
+      //for (Iterator iterator = listap.getLista().iterator(); iterator.hasNext();) {
+      //    String objeto = (String)iterator.next();
+      //     System.out.println("nombre:"+objeto.toString()); 
+      //}
      return "cambiarduenomascota";
   }
 }

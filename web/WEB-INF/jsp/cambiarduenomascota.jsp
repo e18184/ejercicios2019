@@ -19,23 +19,26 @@
          <c:forEach var="l" items="${lista.getLista()}">
             <tr>
                 <td>
-                    ss
-                    <!--<form:checkbox path="nombre" value="${l.getNombre()}" 
-                                   checked="${l.isEsmascota()?'checked':''}"/>-->
+                    
+                    <form:checkbox id="nombre" path="nombre" value="${l.getNombre()}" label="${l.getNombre()}"
+                                   checked="${l.isEsmascota()?'checked':''}"/>
                       
                 </td>
                  <td>
-                     <form:input path="registro" value="${l.getRegistro()}" 
+                     <form:input id="registro" path="registro" value="${l.getRegistro()}" 
                                  label="${l.getRegistro()}"/>
                      
                  </td>
                  <td>
-                     <c:out value="${l.isEsmascota()}"></c:out>
+                     
+                                  
+                        <c:out value="${l.isEsmascota()}"></c:out>
                      
                  </td>
                  
              </tr>
-          </c:forEach>             
+          </c:forEach> 
+          <c:set var="lista" value="l"/> 
         </table>  
          <form:button>Aceptar</form:button>
          </form:form>
