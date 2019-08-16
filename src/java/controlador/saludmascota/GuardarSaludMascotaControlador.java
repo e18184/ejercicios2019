@@ -22,6 +22,7 @@ import org.orm.PersistentException;
 import org.springframework.ui.Model;
 import modelo.ext.PSaludMascota;
 import modelo.saludmascota;
+import modelo.saludmascotaDAO;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 // ASOCIA CON LA VISTA
 @RequestMapping("cambiarduenomascota")
 public class GuardarSaludMascotaControlador {
+  private String pci;
   @RequestMapping(method=RequestMethod.GET)
   public String listarGet(Model model, @RequestParam("ci") String mci){
       //ModelAndView vista = new ModelAndView("cambiarduenomascota");
@@ -82,6 +84,14 @@ public class GuardarSaludMascotaControlador {
       }
       return "cambiarduenomascota";
   }
+
+    public String getPci() {
+        return pci;
+    }
+
+    public void setPci(String pci) {
+        this.pci = pci;
+    }
  /**
      * @param lista *  @ModelAttribute("lista") 
   public List<saludmascota> getListaMascotaSalud(){
@@ -108,15 +118,35 @@ public class GuardarSaludMascotaControlador {
   **/
   @RequestMapping(method=RequestMethod.POST)
   public String guardarPost(@ModelAttribute("lista") PSaludMascota psm, @RequestParam(value ="nombre") String nombre[] 
-  , @RequestParam(value ="registro") String reg[]) 
+  , @RequestParam(value ="registro") String reg[]
+  , @RequestParam("ci") String mci) 
   {
+      // solamente se pasa los valores seleccionados 
+      try {
+      Hijo h = HijoDAO.getHijoByORMID(mci);
+      
+       
       for (int i = 0; i < nombre.length; i++) {
           
           String string = nombre[i];
+          Mascota mascota = MascotaDAO.getMascotaByORMID(string);
+          saludmascota sm = new saludmascota();
+          sm.setHijo(h);
+          sm.setMascota(mascota);
+          saludmascotaDAO.save(sm);
           String registrootro = reg[i];
-          //String recibido=karen[i];
-          System.out.println("nombre:"+string+"+++registro:"+registrootro +"===="+recibido );
+          System.out.println("nombre:"+string+"+++registro:"+registrootro +"====");
           
+      }
+     
+      
+      
+      
+      
+      
+        
+      } catch (PersistentException ex) {
+          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
       }
       //for (Iterator iterator = listap.getLista().iterator(); iterator.hasNext();) {
       //    String objeto = (String)iterator.next();
