@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package controlador.saludmascota;
-
-import com.sun.corba.se.spi.activation._ActivatorImplBase;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -36,8 +34,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("cambiarduenomascota")
 public class GuardarSaludMascotaControlador {
   private String pci;
+  private String getPci() {
+        
+      return pci;
+    }
+
+    private void setPci(String pci) {
+        this.pci = pci;
+    }
   @RequestMapping(method=RequestMethod.GET)
-  public String listarGet(Model model, @RequestParam("ci") String mci){
+  public String listarGet(Model model, 
+          @RequestParam("ci") String mci){
       //ModelAndView vista = new ModelAndView("cambiarduenomascota");
      
       List <PSaludMascota> lmascota =null;
@@ -45,7 +52,7 @@ public class GuardarSaludMascotaControlador {
       try {
           // devuelve los datos en base al ci pasado por la url
           Hijo lhijo = HijoDAO.getHijoByORMID(mci);
-          
+          this.setPci(mci);
       
       lmascota = MascotaDAO.queryMascota(null,null);
       
@@ -85,13 +92,7 @@ public class GuardarSaludMascotaControlador {
       return "cambiarduenomascota";
   }
 
-    public String getPci() {
-        return pci;
-    }
-
-    public void setPci(String pci) {
-        this.pci = pci;
-    }
+    
  /**
      * @param lista *  @ModelAttribute("lista") 
   public List<saludmascota> getListaMascotaSalud(){
@@ -116,24 +117,69 @@ public class GuardarSaludMascotaControlador {
      * @param <error>
      * @return 
   **/
-  @RequestMapping(method=RequestMethod.POST)
-  public String guardarPost(@ModelAttribute("lista") PSaludMascota psm, @RequestParam(value ="nombre") String nombre[] 
-  , @RequestParam(value ="registro") String reg[]
-  , @RequestParam("ci") String mci) 
-  {
-      // solamente se pasa los valores seleccionados 
+  private void borrarSaludMascota (String hijoseleccionado){
       try {
-      Hijo h = HijoDAO.getHijoByORMID(mci);
+          //saludmascotaDAO.
+          Hijo lhijo = HijoDAO.getHijoByORMID(hijoseleccionado);
+          //;
+          saludmascota[] sm2 = lhijo.saludmascotas.toArray();
+          for (int i = 0; i < sm2.length; i++) {
+              saludmascota selecionado = (saludmascota)sm2[i];
+              saludmascotaDAO.deleteAndDissociate(selecionado);
+              //saludmascotaDAO.delete(selecionado);
+          }
+          
+      } catch (PersistentException ex) {
+          System.out.println("Se genero error al borrar ");
+          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    
+             
+            
+  }
+  @RequestMapping(method=RequestMethod.POST)
+  public String guardarPost(
+    @ModelAttribute("lista") PSaludMascota psm, 
+    // nombre de la mascota
+    @RequestParam(value ="nombre") String nombre[] 
+  , @RequestParam(value ="registro") String reg[]
+  ) 
+  {
       
-       
+      // solamente se pasa los valores seleccionados 
+      Hijo h = null;
+      try {
+      // recuperamos el hijo asociado este ci     
+      h = HijoDAO.getHijoByORMID(this.getPci());
+      }
+       catch (PersistentException ex) {
+          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      this.borrarSaludMascota(this.getPci());
+      // solamente nos devuelve los elementos seleccionados
+      
       for (int i = 0; i < nombre.length; i++) {
           
           String string = nombre[i];
+          saludmascota sm = null;
+          try {
           Mascota mascota = MascotaDAO.getMascotaByORMID(string);
-          saludmascota sm = new saludmascota();
+          sm = new saludmascota();
           sm.setHijo(h);
           sm.setMascota(mascota);
+          // vamos a llenar otros datos para que no salga el error 
+          // en los otros campos 
+          sm.setNombreveterinaria("nuevo");
+          sm.setRegistroveterinaria("99");
+          }catch (PersistentException ex) {
+          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+      }
+          try {
           saludmascotaDAO.save(sm);
+          
+          } catch (PersistentException ex) {
+          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
+          }
           String registrootro = reg[i];
           System.out.println("nombre:"+string+"+++registro:"+registrootro +"====");
           
@@ -143,11 +189,8 @@ public class GuardarSaludMascotaControlador {
       
       
       
-      
         
-      } catch (PersistentException ex) {
-          Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
-      }
+     
       //for (Iterator iterator = listap.getLista().iterator(); iterator.hasNext();) {
       //    String objeto = (String)iterator.next();
       //     System.out.println("nombre:"+objeto.toString()); 
