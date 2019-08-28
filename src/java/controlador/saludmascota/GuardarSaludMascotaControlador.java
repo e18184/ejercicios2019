@@ -163,19 +163,26 @@ public class GuardarSaludMascotaControlador {
           String string = nombre[i];
           saludmascota sm = null;
           try {
-          Mascota mascota = MascotaDAO.getMascotaByORMID(string);
-          sm = new saludmascota();
+          Mascota mascota = MascotaDAO.getMascotaByORMID(string);        
+          if (mascota!=null) {
+          sm = new saludmascota();             
           sm.setHijo(h);
           sm.setMascota(mascota);
           // vamos a llenar otros datos para que no salga el error 
           // en los otros campos 
           sm.setNombreveterinaria("nuevo");
-          sm.setRegistroveterinaria("99");
+          //sm.setRegistroveterinaria(Integer.toString(i));
+          sm.setRegistroveterinaria("999");
+          }
           }catch (PersistentException ex) {
           Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
       }
           try {
-          saludmascotaDAO.save(sm);
+              
+          
+              saludmascotaDAO.save(sm);
+         
+         
           
           } catch (PersistentException ex) {
           Logger.getLogger(GuardarSaludMascotaControlador.class.getName()).log(Level.SEVERE, null, ex);
